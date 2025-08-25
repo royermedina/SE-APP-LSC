@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SEÑAPP-LSC</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/quiz.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Barra superior -->
+        <header class="app-header">
+            <button class="menu-btn" id="menuBtn">
+                <i class="bi bi-list"></i>
+            </button>
+            <h1 class="app-title">SEÑAPP-LSC</h1>
+        </header>
+
+        <!-- Menú lateral -->
+        <nav class="side-menu" id="sideMenu">
+            <div class="menu-header">
+                <img src="assets/images/icons/Logo.png" alt="Logo LSC" class="menu-logo">
+                <button class="close-menu-btn" id="closeMenuBtn">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+            <div class="menu-options">
+                <a href="#" class="menu-item" data-section="home">
+                    <i class="bi bi-house"></i>
+                    <span>Inicio</span>
+                </a>
+                <a href="#" class="menu-item" data-section="detalles">
+                    <i class="bi bi-info-circle"></i>
+                    <span>Acerca de</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Overlay para cerrar el menú -->
+        <div class="menu-overlay" id="menuOverlay"></div>
+
+        <!-- Contenedor principal -->
+        <main id="mainContent" class="main-content">
+            <!-- Vista de inicio -->
+            <div id="homeView" class="content-view active">
+                <div class="content-header">
+                    <h2 class="section-title">Categorías de Aprendizaje</h2>
+                    <p class="section-description">Selecciona una categoría para empezar a aprender</p>
+                </div>
+                
+                <div class="categories-grid">
+                    <div class="category-card" onclick="navigateToSection('acciones')" data-section="acciones">
+                        <div class="category-icon acciones">
+                            <i class="bi bi-person-walking"></i>
+                        </div>
+                        <h3>Acciones Básicas</h3>
+                    </div>
+                    <div class="category-card" onclick="navigateToSection('alimentos')" data-section="alimentos">
+                        <div class="category-icon alimentos">
+                            <i class="bi bi-cup-hot"></i>
+                        </div>
+                        <h3>Bebidas y Alimentos</h3>
+                    </div>
+                    <div class="category-card" onclick="navigateToSection('emociones')" data-section="emociones">
+                        <div class="category-icon emociones">
+                            <i class="bi bi-emoji-smile"></i>
+                        </div>
+                        <h3>Emociones y Sensaciones</h3>
+                    </div>
+                    <div class="category-card" onclick="navigateToSection('familia')" data-section="familia">
+                        <div class="category-icon familia">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <h3>Familia y Relaciones</h3>
+                    </div>
+                    <div class="category-card" onclick="navigateToSection('frases')" data-section="frases">
+                        <div class="category-icon frases">
+                            <i class="bi bi-chat-dots"></i>
+                        </div>
+                        <h3>Frases Útiles</h3>
+                    </div>
+                    <div class="category-card" onclick="navigateToSection('lugares')" data-section="lugares">
+                        <div class="category-icon lugares">
+                            <i class="bi bi-geo-alt"></i>
+                        </div>
+                        <h3>Lugares</h3>
+                    </div>
+                    <div class="category-card" onclick="navigateToSection('objetos')" data-section="objetos">
+                        <div class="category-icon objetos">
+                            <i class="bi bi-box-seam"></i>
+                        </div>
+                        <h3>Objetos Comunes</h3>
+                    </div>
+                    <div class="category-card" onclick="navigateToSection('preguntas')" data-section="preguntas">
+                        <div class="category-icon preguntas">
+                            <i class="bi bi-question-circle"></i>
+                        </div>
+                        <h3>Preguntas Comunes</h3>
+                    </div>
+                    <div class="category-card" onclick="navigateToSection('saludos')" data-section="saludos">
+                        <div class="category-icon saludos">
+                            <i class="bi bi-hand-thumbs-up"></i>
+                        </div>
+                        <h3>Saludos y Presentaciones</h3>
+                    </div>
+                    <div class="category-card" onclick="navigateToSection('alfabeto')" data-section="alfabeto">
+                        <div class="category-icon alfabeto">
+                            <i class="bi bi-alphabet"></i>
+                        </div>
+                        <h3>Alfabeto</h3>
+                        <div class="category-progress">
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <span>0/27</span>
+                        </div>
+                    </div>
+                    <div class="category-card" onclick="navigateToSection('numeros')" data-section="numeros">
+                        <div class="category-icon numeros">
+                            <i class="bi bi-123"></i>
+                        </div>
+                        <h3>Números</h3>
+                        <div class="category-progress">
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 0%"></div>
+                            </div>
+                            <span>0/10</span>
+                        </div>
+                    </div>
+                    <div class="category-card" onclick="navigateToSection('practica')" data-section="practica">
+                        <div class="category-icon practica">
+                            <i class="bi bi-controller"></i>
+                        </div>
+                        <h3>Práctica</h3>
+                    </div>
+                </div>
+
+                <div class="quick-access">
+                    <h3 class="quick-access-title">Acceso Rápido</h3>
+                    <div class="quick-cards">
+                        <div class="quick-card" onclick="showLetterDetail('A')">
+                            <div class="quick-icon">
+                                <i class="bi bi-alphabet"></i>
+                            </div>
+                            <span>Letra A</span>
+                        </div>
+                        <div class="quick-card" onclick="showNumberDetail('1')">
+                            <div class="quick-icon">
+                                <i class="bi bi-123"></i>
+                            </div>
+                            <span>Número 1</span>
+                        </div>
+                        <div class="quick-card" onclick="showGreetingIntroductionDetail('hola')">
+                            <div class="quick-icon">
+                                <i class="bi bi-hand-thumbs-up"></i>
+                            </div>
+                            <span>Hola</span>
+                        </div>
+                        <div class="quick-card" onclick="showActionDetail('jugar')">
+                            <div class="quick-icon">
+                                <i class="bi bi-play-circle"></i>
+                            </div>
+                            <span>Jugar</span>
+                        </div>
+                        <div class="quick-card" onclick="navigateToEmotionAndShowDetail('Feliz')">
+                            <div class="quick-icon">
+                                <i class="bi bi-heart"></i>
+                            </div>
+                            <span>Feliz</span>
+                        </div>
+                        <div class="quick-card" onclick="navigateToFamilyAndShowDetail('Madre')">
+                            <div class="quick-icon">
+                                <i class="bi bi-people"></i>
+                            </div>
+                            <span>Madre</span>
+                        </div>
+                        <div class="quick-card" onclick="navigateToPhraseAndShowDetail('NoEntiendo')">
+                            <div class="quick-icon">
+                                <i class="bi bi-chat-dots"></i>
+                            </div>
+                            <span>No Entiendo</span>
+                        </div>
+                        <div class="quick-card" onclick="navigateToPlaceAndShowDetail('Parque')">
+                            <div class="quick-icon">
+                                <i class="bi bi-geo-alt"></i>
+                            </div>
+                            <span>Parque</span>
+                        </div>
+                        <div class="quick-card" onclick="navigateToObjectAndShowDetail('Libro')">
+                            <div class="quick-icon">
+                                <i class="bi bi-box"></i>
+                            </div>
+                            <span>Libro</span>
+                        </div>
+                        <div class="quick-card" onclick="navigateToQuestionAndShowDetail('Que')">
+                            <div class="quick-icon">
+                                <i class="bi bi-question-circle"></i>
+                            </div>
+                            <span>¿Que?</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vistas de contenido -->
+            <div id="alfabetoView" class="content-view"></div>
+            <div id="numerosView" class="content-view"></div>
+            <div id="accionesView" class="content-view"></div>
+            <div id="alimentosView" class="content-view"></div>
+            <div id="emocionesView" class="content-view"></div>
+            <div id="familiaView" class="content-view"></div>
+            <div id="frasesView" class="content-view"></div>
+            <div id="lugaresView" class="content-view"></div>
+            <div id="objetosView" class="content-view"></div>
+            <div id="preguntasView" class="content-view"></div>
+            <div id="saludosView" class="content-view"></div>
+            <div id="practicaView" class="content-view"></div>
+            <div id="detallesView" class="content-view"></div>
+            <div id="detailView" class="content-view"></div>
+        </main>
+
+        <!-- Barra de navegación inferior -->
+        <nav class="bottom-nav">
+            <button class="nav-item active" data-section="home" onclick="navigateToSection('home')">
+                <i class="bi bi-house-fill"></i>
+                <span>Inicio</span>
+            </button>
+            <button class="nav-item" data-section="detalles" onclick="navigateToSection('detalles')">
+                <i class="bi bi-info-circle-fill"></i>
+                <span>Acerca de</span>
+            </button>
+        </nav>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+    <script src="assets/js/Quiz.js"></script>
+    <script src="assets/js/QuizAlphabet.js"></script>
+    <script src="assets/js/QuizNumbers.js"></script>
+    <script src="assets/js/MemoryGame.js"></script>
+    <script src="assets/js/BasicActions.js"></script>
+    <script src="assets/js/FoodDrinks.js"></script>
+    <script src="assets/js/EmotionsSensations.js"></script>
+    <script src="assets/js/FamilyRelations.js"></script>
+    <script src="assets/js/UsefulPhrases.js"></script>
+    <script src="assets/js/Places.js"></script>
+    <script src="assets/js/CommonObjects.js"></script>
+    <script src="assets/js/CommonQuestions.js"></script>
+    <script src="assets/js/GreetingsIntroductions.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
