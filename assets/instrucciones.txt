@@ -1,0 +1,1 @@
+en esta se deben exportar las clases "css, images, js y videos"
